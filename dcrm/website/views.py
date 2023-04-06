@@ -19,12 +19,14 @@ def home(request):
             return redirect('home') # return user to homepage
         else:
             messages.success(request, " There Was A Problem, Please Try Again")
-            return redirect('home') # return user to homepage 
+            return redirect('home') # return user to homepage
     else: # if nothing is being posted
         return render(request, 'home.html', {})
 
-def login_user(request):
-    pass
+# def login_user(request):
+#     pass
 
 def logout_user(request):
-    pass
+    logout(request)
+    messages.success(request, "You Have Been Logged Out.....!")
+    return redirect('home')
