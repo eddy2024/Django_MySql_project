@@ -23,8 +23,6 @@ def home(request):
     else: # if nothing is being posted
         return render(request, 'home.html', {})
 
-# def login_user(request):
-#     pass
 
 def logout_user(request):
     logout(request)
