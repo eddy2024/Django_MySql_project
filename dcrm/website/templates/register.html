@@ -6,11 +6,28 @@
 <br />
 
 <form method="POST" action="{% url 'home' %}">
+    {% csrf_token %}
+    {% if form.errors %}
+    <div class="alert alert-warning alert-alert-dismissible
+        fade show" role="alert">
+        You Form Has form.errors
+        {% for field in form %}
+            {% if field.errors %}
+                {{ field.errors}}
+            {% endif %}
+         {% endfor %}
+         <button type="button" class="btn-close" data-bs-dismiss="alert"
+         aria-label="close">
+         </button>
+    </div>
+    {% endif %}    
+    
+    {{ form.as_p }}  
 
+    <br />
+    <button type="submit" close="btn btn-secondary">Register
+    </button>
 </form>
-
-
-
 </div>
-
+<br />
 {% endblock %}
